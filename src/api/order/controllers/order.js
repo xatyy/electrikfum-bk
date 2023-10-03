@@ -5,18 +5,7 @@ const MobilPay = require('mobilpay-card')
  * order controller
  */
 
-const mobilPay = new MobilPay('2ISS-YFMT-GV1H-AAPH-ZRIQ');
 
-
-
-
-
- mobilPay.setPublicKey('-----BEGIN PUBLIC KEY-----\n'+
- 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC8IdPzYRKWRbir4IWfTe+Ql22t\n'+
- 'OTFjQoeNtpHHxSm6j+WFYglAYNzHOWWHdXtF4vVItUCNmf4773Iaw2RkMI2qwKa9\n'+
- '0vW6MBxJGR/NWaJTqDxwWW2KQNvASMh2EXGk14y7YgRr46cLs5Y5l3gaFS4pyGhN\n'+
- 'CFKTHp/TC1htnxjHXQIDAQAB\n'+
- '-----END PUBLIC KEY-----\n');
 
 
 const { createCoreController } = require('@strapi/strapi').factories;
@@ -266,24 +255,6 @@ module.exports = createCoreController('api::order.order', ({strapi}) => ({
 
 
 
-
-            mobilPay.setPrivateKey('-----BEGIN PRIVATE KEY-----\n'+
-            'MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBAOQuQ7+HBiS+2CGR\n'+
-            'S2nTivGp2E12QuJu+hrboSnQhAK0re/UEypoKIhYcobVylKG4wytnMVOeA+gRcdF\n'+
-            'VHcBincX5cXdYq8H2IuMCXRlBqbRX7Q3x/Qe6pR8A+GRKVM/xVKc8SB5YelTWTA5\n'+
-            '3U3nGBV96hpR+hpbJbnoS0NWmmutAgMBAAECgYEAmQgSNbRnwWMg7rpUGoBekh73\n'+
-            'y1PCHbySDks4NiP7NRlaAht4UxuR+4deH+HoFBsU0V7qYkVzLf+ubKuprzqgUmTK\n'+
-            'zLcbpitSePwUFZBZe8VlisklVwLP3MEISGEhsqF1QbxN8oUL9ggKDXB1aJEncCuW\n'+
-            'ffG8Ut5fq0mcrkXeluECQQDygXRqSxF2kUWg9UsBamanmsMlUCwKAFkixxbePyzD\n'+
-            'Y6/1WYIFaiB2/F3zuRLaT1B5tn0FEhX2zsgcmpddcNW1AkEA8OC/bS8meeDHgJFH\n'+
-            'G8cYIH08hHfcuPXERO7yPQRBtsuEHTHTrqhZ14KnZ0WI0eZGLaByN0pXWcbfwX9i\n'+
-            '5yd5GQJBAI8JzKDlpmdJSMin5pXvLJ2vq2tW3qMHkYvx4os0uDKHmkIdiZOoBX4p\n'+
-            'XUFk6LncDpu8CAH1qP7q+R3mEWIMLAECQFWlM6sYpq+TEpxOC2B/C78RiGD5VUuW\n'+
-            'ZvCznQHA77SU7CaNPtzNExSjae44NQucursiXzn1ftV29rwQFRRnXpECQQDJ5WhT\n'+
-            'nC5A3igudpUTWxSmmuC/bYNGornHGstpB3rjXUSdFtjbYQj6S/wqTHOFrhcuae4b\n'+
-            'qgL2VVE/iRYyd/bU\n'+
-            '-----END PRIVATE KEY-----');
-                
 
 
             let response = await mobilPay.validatePayment(env_key, data)
